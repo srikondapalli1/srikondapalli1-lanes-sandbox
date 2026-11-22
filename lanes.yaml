@@ -1,0 +1,23 @@
+# Three-lane sample (SPEC §6): world simulates, brain decides, crowd spawns haunts.
+# Throwaway sandbox for real-GitHub end-to-end tests of contract-lanes.
+lanes_version: "^0.1.0"
+approvers: ["@srikondapalli1"]
+capacity: { laptops: 1, sessions_per_laptop: 3, hours: 24 }
+settings:
+  autopilot: true
+  stop_gate: false
+  fix_size_cap: 200
+  fix_attempts: 2
+  lease_minutes: 30
+  property_runs: 200
+  watch_interval_sec: 20
+lanes:
+  world: { owner: "@srikondapalli1",    paths: ["apps/world/**"] }
+  brain: { owner: "@srikondapalli1", paths: ["apps/brain/**"] }
+  crowd: { owner: "@srikondapalli1",    paths: ["apps/crowd/**"] }
+contracts:
+  TickRequest:  { producer: world, consumers: [brain] }
+  TickResponse: { producer: brain, consumers: [world] }
+  Haunt:        { producer: crowd, consumers: [world, brain] }
+handlers:
+  tick: { lane: brain, module: "apps/brain/src/tick.ts#tick", input: TickRequest, output: TickResponse }

@@ -1,0 +1,5 @@
+{ "tick": 42, "worldId": "manor", "agents": [
+  { "id": "a-1", "at": { "x": 3, "y": 4 }, "mood": "calm" },
+  { "id": "a-2", "at": { "x": 10, "y": 2 }, "mood": "curious" },
+  { "id": "a-3", "at": { "x": 0, "y": 63 }, "mood": "calm" }
+], "haunts": [{ "id": "h-01", "at": { "x": 5, "y": 5 }, "intensity": 6.5 }] }

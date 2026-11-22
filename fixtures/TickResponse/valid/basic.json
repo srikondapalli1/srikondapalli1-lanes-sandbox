@@ -1,0 +1,4 @@
+{ "tick": 42, "actions": [
+  { "agentId": "a-1", "kind": "wait", "holdMs": 250 },
+  { "agentId": "a-2", "kind": "move", "to": { "x": 11, "y": 2 }, "holdMs": 400 }
+] }
