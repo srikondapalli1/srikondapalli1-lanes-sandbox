@@ -1,7 +1,7 @@
 {
   "v": 1,
-  "lockedAt": 1795382377449,
-  "lanes_version": "^0.1.0",
+  "lockedAt": 1795415565076,
+  "lanes_version": "^0.1.3",
   "contracts": {
     "Haunt": {
       "version": "1.0.0",
@@ -68,6 +68,115 @@
       "fixtureFiles": {
         "fixtures/Haunt/invalid/too-intense.json": "dacb3d004e4306e9f9b67cdebd273980d88e7d3a90bdef6bee281bb0cb55eac3",
         "fixtures/Haunt/valid/whisper.json": "335cca028803773101dc6c691f174dfa7d34adb0c206e13ca3b24097a7d0cb90"
+      }
+    },
+    "Scoreboard": {
+      "version": "1.0.0",
+      "schemaHash": "d03183469d7ba8b19426d6e8977c90c3f62753ab90484c43abf7ab3866a25dfe",
+      "fixturesHash": "4a8f2a6648d804b856a9b5bed3186d3314c0da5a60a00cd118f77fa9bde14924",
+      "consumerTestsHash": {},
+      "jsonSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "tick": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "rows": {
+            "maxItems": 12,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "agentId": {
+                  "type": "string",
+                  "pattern": "^a-[0-9]{1,4}$"
+                },
+                "points": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "rank": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
+                }
+              },
+              "required": [
+                "agentId",
+                "points",
+                "rank"
+              ]
+            }
+          },
+          "leader": {
+            "type": "string",
+            "pattern": "^a-[0-9]{1,4}$"
+          }
+        },
+        "required": [
+          "tick",
+          "rows"
+        ]
+      },
+      "fixtureFiles": {
+        "fixtures/Scoreboard/invalid/rank-zero.json": "e146f3c045386709a862b4247a404ce55d89f0ea93dbe36cb728dd6bafc44171",
+        "fixtures/Scoreboard/valid/empty.json": "3e9a63f673fb631ad23b8c24381f2a55f2a0bc7c326834998eb2212be59e114e",
+        "fixtures/Scoreboard/valid/two-agents.json": "f71469d36c5f3cbf5dc0a9ff71f275a0edea2ca84254fd2c2107bb05ccf7e2a7"
+      }
+    },
+    "SpawnRequest": {
+      "version": "1.0.0",
+      "schemaHash": "7e151cc5b8eb027475497bd3c2764d265d0f78ec3074908e4e707ed0601335c3",
+      "fixturesHash": "e4db410a86b958b5cec58f5fb2cb420713f1bc078690dda6c4c9cf2fc5f51a54",
+      "consumerTestsHash": {},
+      "jsonSchema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "tick": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "seed": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000000
+          },
+          "near": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 63
+              },
+              "y": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 63
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        "required": [
+          "tick",
+          "seed",
+          "near"
+        ]
+      },
+      "fixtureFiles": {
+        "fixtures/SpawnRequest/invalid/negative-seed.json": "f399e71612e006010a8b2335ba8be3afa142767336972da0a268217cc16da0d8",
+        "fixtures/SpawnRequest/valid/basic.json": "9b8a8c0894017b472d8b1c530ee5aaeb08b7a98b68946551bda1cd42f193ef1b",
+        "fixtures/SpawnRequest/valid/edge.json": "69517e60000aa84ab041a7742516f1e8bec805dddb621952bbc7589704ed1237"
       }
     },
     "TickRequest": {
