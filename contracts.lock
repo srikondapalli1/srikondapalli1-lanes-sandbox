@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "lockedAt": 1795418325486,
+  "lockedAt": 1795418346947,
   "lanes_version": "^0.1.7",
   "contracts": {
     "Haunt": {
@@ -74,7 +74,9 @@
       "version": "1.0.0",
       "schemaHash": "d03183469d7ba8b19426d6e8977c90c3f62753ab90484c43abf7ab3866a25dfe",
       "fixturesHash": "4a8f2a6648d804b856a9b5bed3186d3314c0da5a60a00cd118f77fa9bde14924",
-      "consumerTestsHash": {},
+      "consumerTestsHash": {
+        "ui": "456ae020c58f326502d28d88063e4a78a8e10c81b84fa29386009584259d5c64"
+      },
       "jsonSchema": {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
         "type": "object",
