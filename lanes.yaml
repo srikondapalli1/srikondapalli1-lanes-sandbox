@@ -1,6 +1,6 @@
 # Five lanes: world simulates, brain decides, crowd spawns haunts, score keeps the fear table, ui renders it.
 # Throwaway sandbox for real-GitHub end-to-end tests of contract-lanes.
-lanes_version: "^0.1.3"
+lanes_version: "^0.1.4"
 approvers: ["@srikondapalli1"]
 capacity: { laptops: 1, sessions_per_laptop: 5, hours: 24 }
 settings:

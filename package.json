@@ -6,7 +6,7 @@
     "check": "lanes check"
   },
   "devDependencies": {
-    "contract-lanes": "^0.1.3",
+    "contract-lanes": "^0.1.4",
     "vitest": "^5.1.0",
     "zod": "^4.1.0"
   }
