@@ -1,8 +1,8 @@
-# Three-lane sample (SPEC §6): world simulates, brain decides, crowd spawns haunts.
+# Five lanes: world simulates, brain decides, crowd spawns haunts, score keeps the fear table, ui renders it.
 # Throwaway sandbox for real-GitHub end-to-end tests of contract-lanes.
-lanes_version: "^0.1.0"
+lanes_version: "^0.1.3"
 approvers: ["@srikondapalli1"]
-capacity: { laptops: 1, sessions_per_laptop: 3, hours: 24 }
+capacity: { laptops: 1, sessions_per_laptop: 5, hours: 24 }
 settings:
   autopilot: true
   stop_gate: false
@@ -15,9 +15,13 @@ lanes:
   world: { owner: "@srikondapalli1",    paths: ["apps/world/**"] }
   brain: { owner: "@srikondapalli1", paths: ["apps/brain/**"] }
   crowd: { owner: "@srikondapalli1",    paths: ["apps/crowd/**"] }
+  score: { owner: "@srikondapalli1",    paths: ["apps/score/**"] }
+  ui:    { owner: "@srikondapalli1",    paths: ["apps/ui/**"] }
 contracts:
   TickRequest:  { producer: world, consumers: [brain] }
-  TickResponse: { producer: brain, consumers: [world] }
+  TickResponse: { producer: brain, consumers: [world, score] }
   Haunt:        { producer: crowd, consumers: [world, brain] }
+  SpawnRequest: { producer: world, consumers: [crowd] }
+  Scoreboard:   { producer: score, consumers: [ui] }
 handlers:
   tick: { lane: brain, module: "apps/brain/src/tick.ts#tick", input: TickRequest, output: TickResponse }

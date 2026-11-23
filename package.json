@@ -6,7 +6,7 @@
     "check": "lanes check"
   },
   "devDependencies": {
-    "contract-lanes": "github:srikondapalli1/contract_lanes_plugin",
+    "contract-lanes": "^0.1.3",
     "vitest": "^5.1.0",
     "zod": "^4.1.0"
   }
