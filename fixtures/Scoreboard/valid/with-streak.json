@@ -1,1 +1,1 @@
-{ "tick": 8, "rows": [{ "agentId": "a-3", "points": 6, "rank": 1, "streak": 4 }], "leader": "a-3" }
+{ "tick": 8, "rows": [{ "agentId": "a-3", "fear": 6, "rank": 1, "streak": 4 }], "leader": "a-3" }

@@ -11,7 +11,7 @@ export function score(r: TickResponse): Scoreboard {
   const byAgent = new Map<string, number>();
   for (const a of r.actions) byAgent.set(a.agentId, (byAgent.get(a.agentId) ?? 0) + POINTS[a.kind]);
   const rows = [...byAgent].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 12)
-    .map(([agentId, points], i) => ({ agentId, points, rank: i + 1, streak: Math.min(1_000_000, (streaks.get(agentId) ?? 0) + 1) }));
+    .map(([agentId, fear], i) => ({ agentId, fear, rank: i + 1, streak: Math.min(1_000_000, (streaks.get(agentId) ?? 0) + 1) }));
   for (const id of [...streaks.keys()]) if (!rows.some((x) => x.agentId === id)) streaks.delete(id);
   for (const x of rows) streaks.set(x.agentId, x.streak);
   return { tick: r.tick, rows, ...(rows[0] ? { leader: rows[0].agentId } : {}) };
