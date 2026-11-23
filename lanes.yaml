@@ -25,3 +25,4 @@ contracts:
   Scoreboard:   { producer: score, consumers: [ui] }
 handlers:
   tick: { lane: brain, module: "apps/brain/src/tick.ts#tick", input: TickRequest, output: TickResponse }
+  score: { lane: score, module: "apps/score/src/score.ts#score", input: TickResponse, output: Scoreboard }
