@@ -26,3 +26,4 @@ contracts:
 handlers:
   tick: { lane: brain, module: "apps/brain/src/tick.ts#tick", input: TickRequest, output: TickResponse }
   score: { lane: score, module: "apps/score/src/score.ts#score", input: TickResponse, output: Scoreboard }
+  spawn: { lane: crowd, module: "apps/crowd/src/spawn.ts#spawn", input: SpawnRequest, output: Haunt }
